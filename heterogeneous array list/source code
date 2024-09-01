@@ -1,0 +1,45 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+  arrayList1<Integer> a=new arrayList1<Integer>();
+ a.insert(1);
+ a.insert(2);
+ a.insert(3);
+ a.insert(4);
+ a.insert(5);
+ a.display();
+ arrayList1<String> b=new arrayList1<String>();
+  b.insert("a");
+ b.insert("b");
+ b.insert("c");
+ b.insert("d");
+ b.insert("e");
+ b.display();
+      }
+}
+class arrayList1<anytype>{
+ final static int initialSize=4;
+private anytype a[]=(anytype[])new Object[initialSize];
+ int index=0,capacity=initialSize;
+ 
+ void insert(anytype value){
+  if(index==capacity)
+  grow();
+   a[index++]=value;
+ }
+ 
+ void grow(){
+   capacity=capacity*2;
+   a=Arrays.copyOf(a,capacity);
+    }
+    
+ void display(){
+   if(index==0)
+   System.out.println("List Is Empty");
+   else{
+     for(int i=0;i<index;i++)
+   System.out.print(a[i]+" ");
+   System.out.println();
+ }
+}
+}
