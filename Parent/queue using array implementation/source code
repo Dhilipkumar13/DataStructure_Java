@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Queue a=new Queue(6);
+      a.enqueue(12);
+      System.out.println(a.dequeue());
+      System.out.println(a.dequeue());
+    
+  }
+}
+class Queue{
+  final int size;
+  int a[];
+  int front,rear;
+  Queue(){
+    size=5;
+    a=new int[size];
+    front=rear=-1;
+  }
+  Queue(int userSize){
+    size=userSize;
+    a=new int[size];
+    front=rear=-1;
+  }
+  void enqueue(int data){
+    if(front==-1 && rear==-1){
+      front=0;
+      a[++rear]=data;
+    }
+    else if(rear==size-1)
+    System.out.println("QUEUE OVERFLOW");
+    else{
+       a[++rear]=data;
+    }
+  }
+  int dequeue(){
+     if(front==-1 && rear==-1){
+       System.out.println("QUEUE UNDERFLOW");  
+       return -1;
+     }
+     else if(front==rear){
+       int copy=a[front];
+     front=rear=-1;
+     return copy;
+  }
+  return a[front++];
+}
+}
